@@ -1,0 +1,18 @@
+[
+    "SAR_HH",
+    "SAR_HV",
+    "SAR_VH",
+    "SAR_VV",
+    "SAR_HH_HV_Ratio",
+    "SAR_VV_VH_Ratio",
+    "SAR_CrossPol",
+    "SAR_CoPol",
+    "SAR_Polarization_Difference",
+    "Incidence_Angle",
+    "Slope",
+    "Aspect",
+    "Roughness",
+    "Curvature",
+    "TRI",
+    "Elevation"
+]

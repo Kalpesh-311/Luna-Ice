@@ -1,0 +1,26 @@
+# Node
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Build
+dist/
+build/
+
+# Python
+.venv/
+venv/
+__pycache__/
+
+# Generated outputs
+outputs/
+
+# Logs
+*.log
+# Ignore Jupyter notebook
+Lunar_Mission_Analysis.ipynb
+backend/data/hazard_map.tif
+backend/data/ice_probability_map.tif
+backend/data/*.tif

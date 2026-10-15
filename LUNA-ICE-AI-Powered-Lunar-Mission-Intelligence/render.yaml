@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: luna-ice-backend
+    env: docker
+    dockerfilePath: Dockerfile.backend
+    plan: starter
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+
+  - type: web
+    name: luna-ice-frontend
+    env: docker
+    dockerfilePath: Dockerfile.frontend
+    plan: starter
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          name: luna-ice-backend
+          type: web
+          property: host
+          path: /api/v1
+    dependsOn:
+      - luna-ice-backend

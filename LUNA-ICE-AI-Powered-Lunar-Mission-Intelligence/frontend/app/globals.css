@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050a1a;
+  --foreground: #e0e7ff;
+  --card: rgba(10, 15, 30, 0.85);
+  --card-border: rgba(59, 130, 246, 0.35);
+  --primary: #2563eb;
+  --secondary: #7c3aed;
+  --accent: #f59e0b;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #06b6d4;
+}
+
+body {
+  background: linear-gradient(135deg, #050a1a 0%, #0a1428 50%, #050a1a 100%);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+}
+
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--card-border);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92), rgba(10, 15, 30, 0.92));
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: 20px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.15), 0 0 60px rgba(59, 130, 246, 0.08);
+}
+
+.glass-card:hover {
+  border-color: rgba(59, 130, 246, 0.7);
+  box-shadow: 0 0 35px rgba(59, 130, 246, 0.25), 0 0 80px rgba(59, 130, 246, 0.12);
+  transform: translateY(-3px);
+}
+
+.sidebar-item {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-item:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-left: 3px solid var(--primary);
+}
+
+.sidebar-item.active {
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.25), transparent);
+  border-left: 3px solid var(--primary);
+  box-shadow: -5px 0 20px rgba(37, 99, 235, 0.35);
+}
+
+.gauge-container {
+  position: relative;
+  width: 130px;
+  height: 65px;
+  margin: 0 auto;
+}
+
+.gauge-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 130px 130px 0 0;
+  background: conic-gradient(
+    from 180deg,
+    #10b981 0deg,
+    #3b82f6 90deg,
+    #f59e0b 150deg,
+    #ef4444 180deg,
+    transparent 180deg
+  );
+  clip-path: polygon(0 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+.gauge-fill {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: calc(100% - 36px);
+  height: calc(100% - 18px);
+  background: #0a1428;
+  border-radius: 130px 130px 0 0;
+}
+
+.gauge-center {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(147, 197, 253, 0.6);
+}
+
+.pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4), 0 0 25px rgba(16, 185, 129, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.8), 0 0 50px rgba(16, 185, 129, 0.3);
+  }
+}
+
+.scan-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-effect::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: scan 6s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translate(-100%, -100%) rotate(45deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(45deg);
+  }
+}
+
+.radar-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 0deg, transparent 0deg, rgba(59, 130, 246, 0.2) 60deg, transparent 120deg);
+  animation: radar-sweep 4s linear infinite;
+}
+
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.floating-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(147, 197, 253, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-30px) translateX(15px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}

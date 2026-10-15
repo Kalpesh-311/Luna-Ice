@@ -1,0 +1,13 @@
+{
+  "mission_score": 0.85,
+  "landing_score": 0.78,
+  "ice_probability": 0.82,
+  "hazard_percent": 15,
+  "mission_readiness": "Ready",
+  "crater_count": 234,
+  "boulder_count": 1567,
+  "safe_area_percent": 68,
+  "danger_area_percent": 15,
+  "mission_status": "ACTIVE",
+  "average_slope": 8.5
+}
